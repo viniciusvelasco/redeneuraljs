@@ -22,6 +22,15 @@ class Matrix {
     return matrix;
   }
 
+  static matrixToArray(obj) {
+    let arr = [];
+
+    obj.map((elm, i, j) => {
+      return arr.push(elm);
+    });
+    return arr;
+  }
+
   print() {
     console.table(this.data);
   }
@@ -34,9 +43,8 @@ class Matrix {
   }
 
   static map(A, func) {
-    console.log("b", B);
-    let matrix = new Matrix(A.rows, B.cols);
-    matrix.data = matrix.data.map((arr, i) => {
+    let matrix = new Matrix(A.rows, A.cols);
+    matrix.data = A.data.map((arr, i) => {
       return arr.map((num, j) => {
         return func(num, i, j);
       });
